@@ -54,13 +54,22 @@ const app = new Vue({
         addDoneList(index) {
             this.doneList.push(index);
 
-            doneList = this.doneList;
+            // doneList = this.doneList;
         },
         addNew() {
-            this.todoList.push(this.textNewTodo);
-            this.textNewTodo.text = this.newTodo;
-            this.newTodo = ''
-        },
 
+            if (this.newTodo.length > 0) {
+
+                this.todoList.push(this.textNewTodo);
+                this.textNewTodo.text = this.newTodo;
+                this.newTodo = ''
+            }
+
+        },
+        addTodoList(index) {
+            this.todoList.push(index);
+
+            // doneList = this.doneList;
+        }
     }
 })

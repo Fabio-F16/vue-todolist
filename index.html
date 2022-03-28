@@ -26,7 +26,7 @@
                 <li v-for="(item, index) in todoList" @click="deleteTask(item)">
 
                     <div v-if="!doneList.includes(index)" :class="ifDone(item)">
-                        <i @click="addDoneList(index, item)" class="fa-solid fa-circle-xmark"></i>
+                        <i @click="addDoneList(index)" class="fa-solid fa-circle-xmark"></i>
                         {{item.text}}
                     </div>
 
@@ -39,20 +39,20 @@
 
 
         <div class="container">
-            <input type="text" v-model="newTodo" placeholder="Inserisci nuova" @keyUp.enter="addNew()" />
-            <button @click="addNew()">Aggiungi</button>
+            <input type="text" v-model="newTodo" placeholder="Inserisci una nuova task" @keyUp.enter="addNew()" />
+            <button @click="addNew()" class="bg-warning">Aggiungi</button>
         </div>
 
 
 
         <div class="container">
 
-            <h1 class="text-center bg-success">Check list</h1>
+            <h1 class="text-center bg-success">Done list</h1>
             <ul>
                 <li v-for="(item, index) in todoList">
 
                     <div v-if="doneList.includes(index)" class="to-do green rounded-pill">
-                        <i class="fa-solid fa-circle-check"></i>
+                        <i @click="addTodoList(index)" class="fa-solid fa-circle-check"></i>
                         {{item.text}}
                     </div>
 
