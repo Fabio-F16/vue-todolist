@@ -25,6 +25,12 @@ const app = new Vue({
     data: {
         todoList,
         doneList: [],
+        newTodo: '',
+        textNewTodo:
+        {
+            text: '',
+            done: false
+        }
     },
     methods: {
         change(item) {
@@ -36,16 +42,23 @@ const app = new Vue({
         ifDone(item) {
 
             if (!item.done) {
-                return 'to-do';
+                return 'to-do red';
             } else {
-                return 'to-do line-through';
+                return 'to-do green line-through';
             }
         },
-        remove(index) {
+        addDoneList(index) {
             this.doneList.push(index);
-            console.log(this.doneList)
+
+            doneList = this.doneList;
+        },
+        addNew() {
+            this.textNewTodo.text = this.newtodo;
+            if (this.newTodo.length > 0) {
+                this.todoList.push(this.textNewTodo);
+
+                this.newTodo = ''
+            }
         }
-
     }
-
 })

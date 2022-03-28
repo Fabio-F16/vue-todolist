@@ -17,25 +17,37 @@
 
     <div id="root">
 
-        <h1>TO DO LIST</h1>
+        <h1>To Do List</h1>
         <ul>
-
-
             <li v-for="(item, index) in todoList" @click="change(item)">
 
                 <div v-if="!doneList.includes(index)" :class="ifDone(item)">
-                    <i @click="remove(index, item)" class="fa-solid fa-circle-xmark"></i>
+                    <i @click="addDoneList(index, item)" class="fa-solid fa-circle-xmark"></i>
                     {{item.text}}
                 </div>
 
             </li>
-
-
-
         </ul>
 
+        <div>
+            <input type="text" v-model="newTodo" placeholder="Inserisci nuova" @keyUp.enter="addNew()" />
+            <button @click="addNew()">Aggiungi</button>
+        </div>
 
 
+
+
+        <h1>Check list</h1>
+        <ul>
+            <li v-for="(item, index) in todoList" @click="change(item)">
+
+                <div v-if="doneList.includes(index)" class="to-do green">
+                    <i class="fa-solid fa-circle-check"></i>
+                    {{item.text}}
+                </div>
+
+            </li>
+        </ul>
 
     </div>
 

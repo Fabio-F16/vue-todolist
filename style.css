@@ -9,3 +9,11 @@
 ul{
     list-style-type: none;
 }
+
+.red{
+    background-color:red;
+}
+
+.green{
+    background-color:green;
+}
