@@ -5,3 +5,7 @@
 .to-do{
     border: 1px solid black;
 }
+
+ul{
+    list-style-type: none;
+}

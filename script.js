@@ -24,9 +24,7 @@ const app = new Vue({
     el: '#root',
     data: {
         todoList,
-        donelist: [],
-
-
+        doneList: [],
     },
     methods: {
         change(item) {
@@ -43,6 +41,10 @@ const app = new Vue({
                 return 'to-do line-through';
             }
         },
+        remove(index) {
+            this.doneList.push(index);
+            console.log(this.doneList)
+        }
 
     }
 
