@@ -19,55 +19,50 @@
 
     <div id="root">
 
-        <div class="container d-flex flex-column gap-">
+        <div class="container d-flex flex-column align-items-center bg-danger rounded">
 
-            <h1 class="text-center bg-danger">To Do List</h1>
-            <ul>
+            <h1 class="col-12 text-center bg-danger">To Do List</h1>
+            <i class="fa-solid fa-arrow-down-long"></i>
+
+            <ul class="col-6">
                 <li v-for="(item, index) in todoList" @click="deleteTask(item)">
-
                     <div v-if="!doneList.includes(index)" :class="ifDone(item)">
                         <i @click="addDoneList(index)" class="fa-solid fa-circle-xmark"></i>
                         {{item.text}}
                     </div>
-
                 </li>
             </ul>
 
+        </div>
 
+
+        <div class="container d-flex justify-content-center gap-3">
+
+            <input class="col-2" type="text" v-model="newTodo" placeholder="Inserisci una nuova task"
+                @keyUp.enter="addNew()" />
+            <button @click="addNew()" class="col-2 bg-warning">Aggiungi</button>
 
         </div>
 
 
-        <div class="container">
-            <input type="text" v-model="newTodo" placeholder="Inserisci una nuova task" @keyUp.enter="addNew()" />
-            <button @click="addNew()" class="bg-warning">Aggiungi</button>
-        </div>
 
+        <div class="container d-flex flex-column align-items-center bg-success rounded">
 
+            <h1 class="col-12 text-center bg-success">Done list</h1>
+            <i class="fa-solid fa-arrow-down-long"></i>
 
-        <div class="container">
-
-            <h1 class="text-center bg-success">Done list</h1>
-            <ul>
+            <ul class="col-6">
                 <li v-for="(item, index) in todoList">
-
                     <div v-if="doneList.includes(index)" class="to-do green rounded-pill">
                         <i @click="addTodoList(index)" class="fa-solid fa-circle-check"></i>
                         {{item.text}}
                     </div>
-
                 </li>
             </ul>
 
         </div>
 
-
     </div>
-
-
-
-
-
     <script src="script.js"></script>
 </body>
 
