@@ -33,18 +33,22 @@ const app = new Vue({
         }
     },
     methods: {
-        change(item) {
-            item['done'] = true;
-            console.log('ho cliccato');
-            console.log(item);
+        deleteTask(item) {
+
+            if (item['done'] = true) {
+                console.log('ho cliccato');
+                console.log(item);
+            }
+
+
         },
 
         ifDone(item) {
 
             if (!item.done) {
-                return 'to-do red';
+                return 'to-do red rounded-pill';
             } else {
-                return 'to-do green line-through';
+                return 'to-do green line-through rounded-pill';
             }
         },
         addDoneList(index) {
@@ -59,6 +63,10 @@ const app = new Vue({
 
                 this.newTodo = ''
             }
-        }
+        },
+        // reAddTask(item) {
+        //     item['done'] = true
+        //     this.todoList.push(this.item);
+        // }
     }
 })
