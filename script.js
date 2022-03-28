@@ -57,16 +57,10 @@ const app = new Vue({
             doneList = this.doneList;
         },
         addNew() {
-            this.textNewTodo.text = this.newtodo;
-            if (this.newTodo.length > 0) {
-                this.todoList.push(this.textNewTodo);
-
-                this.newTodo = ''
-            }
+            this.todoList.push(this.textNewTodo);
+            this.textNewTodo.text = this.newTodo;
+            this.newTodo = ''
         },
-        // reAddTask(item) {
-        //     item['done'] = true
-        //     this.todoList.push(this.item);
-        // }
+
     }
 })
