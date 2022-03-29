@@ -5,15 +5,15 @@ const todoList = [
         done: false
     },
     {
-        text: 'pulire casa',
+        text: 'Pulire casa',
         done: false
     },
     {
-        text: 'portare fuori Nala',
+        text: 'Portare fuori Nala',
         done: false
     },
     {
-        text: 'preparare il pranzo',
+        text: 'Preparare il pranzo',
         done: false
     }
 ];
@@ -33,14 +33,12 @@ const app = new Vue({
         }
     },
     methods: {
-        deleteTask(item) {
+        changeStatusTask(item) {
 
-            if (item['done'] = true) {
-                console.log('ho cliccato');
-                console.log(item);
-            }
-
-
+            // item['done'] = true;
+            item.done = !item.done;
+            console.log('ho cliccato');
+            console.log(item);
         },
 
         ifDone(item) {
@@ -66,10 +64,5 @@ const app = new Vue({
             }
 
         },
-        addTodoList(index) {
-            this.todoList.push(index);
-
-            // doneList = this.doneList;
-        }
     }
 })

@@ -25,7 +25,7 @@
             <i class="fa-solid fa-arrow-down-long"></i>
 
             <ul class="col-6">
-                <li v-for="(item, index) in todoList" @click="deleteTask(item)">
+                <li v-for="(item, index) in todoList" @click="changeStatusTask(item)">
                     <div v-if="!doneList.includes(index)" :class="ifDone(item)">
                         <i @click="addDoneList(index)" class="fa-solid fa-circle-xmark"></i>
                         {{item.text}}
